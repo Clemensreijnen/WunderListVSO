@@ -6,8 +6,8 @@
     "provider": {
         "name": "Clemens Reijnen"
     },
-    "baseUri": "https://w4v.azurewebsites.net/Home/",
-    "icon": "https://w4v.azurewebsites.net/Content/Images/logo.png",
+    "baseUri": "https://localhost:44300/Home/",
+    "icon": "https://localhost:44300/Content/Images/logo.png",
     "contributions": {
         "vss.web#hubs": [
             {
@@ -26,7 +26,7 @@
                 "text": "Add to Wunderlist",
                 "title": "Add to Wunderlist",
                 "toolbarText": "Add to Wunderlist",
-                "icon": "https://w4v.azurewebsites.net/Content/images/add-to-wunderlist.png",
+                "icon": "https://localhost:44300/Content/images/add-to-wunderlist.png",
                 "uri": "main"
             }
         ]
