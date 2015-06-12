@@ -1,0 +1,77 @@
+﻿@model MVCTEST.Models.Account
+
+
+
+@{
+    ViewBag.Title = "Visual Studio Online 2 Wunderlist";
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Visual Studio Online 2 Wunderlist</title>
+    <script type="text/javascript" src="~/Scripts/SDK/VSS.SDK.js"></script>
+    <script type="text/javascript"  src="~/Scripts/Views/ProjectIndex.js"></script>
+</head>
+<body>
+    <h1>Visual Studio Online 2 Wunderlist</h1>
+    <h4>Put VSO tasks in Wunderlist</h4>
+    <br />
+    @if (string.IsNullOrEmpty(Model.Token))
+    {
+        using (Ajax.BeginForm("Index", "Home", new AjaxOptions { UpdateTargetId = "grid-container" }))
+        {
+            <fieldset>
+                <div class="form-horizontal">
+                    <h4>Login</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Login" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        }
+    }
+    else
+    {
+        <div class="form-horizontal">
+            <div id="wul-workspace" class="form-group">
+                <span class="col-md-3 form-label">
+                    @Html.DisplayNameFor(model => model.Workspace)
+                </span>
+                <div class="col-md-9">
+                    @Html.DropDownList("Workspaces", (IEnumerable<SelectListItem>)ViewBag.Workspaces, "Select a List", new { @class = "form-control", onchange = "refresh(this)" })
+                </div>
+            </div>
+            <div class="form-group">
+                <span class="col-md-3 form-label">
+                    Tasks
+                </span>
+                <div id="grid-container" class="col-md-9"></div>
+            </div>
+        </div>
+    }
+  
+    <script type="text/javascript">VSS.notifyLoadSucceeded();</script>
+    <br /><br /><br /><br />
+</body>
+</html>

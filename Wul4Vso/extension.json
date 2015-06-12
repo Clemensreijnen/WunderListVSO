@@ -1,0 +1,34 @@
+﻿{
+    "namespace": "Sogeti",
+    "version": "0.0.1",
+    "name": "WunderVSO",
+    "description": "Put VSO Tasks in Wunderlist and back.",
+    "provider": {
+        "name": "Clemens Reijnen"
+    },
+    "baseUri": "https://w4v.azurewebsites.net/Home/",
+    "icon": "https://w4v.azurewebsites.net/Content/Images/logo.png",
+    "contributions": {
+        "vss.web#hubs": [
+            {
+                "id": "WunderVSO.HelloVSO",
+                "name": "WunderVSO",
+                "groupId": "workitems",
+                "order": 22,
+                "uri": "Index",
+                "usesSdk": true,
+                "fullPage": false
+            }
+        ],
+        "vss.work.web#workItemActions": [
+            {
+                "id": "showProperties",
+                "text": "Add to Wunderlist",
+                "title": "Add to Wunderlist",
+                "toolbarText": "Add to Wunderlist",
+                "icon": "https://w4v.azurewebsites.net/Content/images/add-to-wunderlist.png",
+                "uri": "main"
+            }
+        ]
+    }
+}
