@@ -8,8 +8,8 @@ pipeline {
             echo 'Building..'
             
           },
-          "": {
-            mail(subject: 'from jenkins', body: 'hello', from: 'clemens@al77.nl', replyTo: 'clemens@al77.nl', to: 'clemens@al77.nl')
+          "error": {
+            input(message: 'wait', id: '1', submitter: 'clemens', submitterParameter: 'c')
             
           }
         )
