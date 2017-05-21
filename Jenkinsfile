@@ -3,26 +3,52 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        parallel(
-          "Build": {
-            echo 'Building..'
-            
-          },
-          "error": {
-            input(message: 'wait', id: '1', submitter: 'clemens', submitterParameter: 'c')
-            
-          }
-        )
+        echo 'Building..'
+        echo 'UnitTesting ...'
       }
     }
-    stage('Test') {
+    stage('Package') {
       steps {
-        echo 'Testing..'
+        echo 'Packaging..'
+        echo 'Set in artifactory'
       }
     }
-    stage('Deploy') {
+    stage('Import in Apigee') {
       steps {
-        echo 'Deploying....'
+        echo 'Importing ....'
+        echo 'Create Apigee Targets'
+      }
+    }
+    stage('Develop Deployment') {
+      steps {
+        echo 'Deploy to container'
+        echo 'API Test deployment'
+        echo 'Deploy to Apigee develop'
+        echo 'Api Testing on Apigee endpoints'
+      }
+    }
+    stage('Test Deployment') {
+      steps {
+        echo 'Deploy test'
+        echo 'Deploy test Apigee'
+        echo 'Api test'
+        echo 'Configure monitoring'
+      }
+    }
+    stage('Staging deployment') {
+      steps {
+        echo 'Deploying staging'
+        echo 'Deploying staging Apigee'
+        echo 'Api testing ...'
+        echo 'Configure monitoring'
+      }
+    }
+    stage('Production deployment') {
+      steps {
+        echo 'deploying '
+        echo 'Deploy Prod Apigee'
+        echo 'Api testing '
+        echo 'Configure monitoring'
       }
     }
   }
