@@ -16,7 +16,7 @@ pipeline {
     stage('Import in Apigee') {
       steps {
         parallel(
-          "Import in Apigee": {
+          "Apigee": {
             echo 'Importing ....'
             echo 'Create Apigee Targets'
             
