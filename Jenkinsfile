@@ -15,8 +15,17 @@ pipeline {
     }
     stage('Import in Apigee') {
       steps {
-        echo 'Importing ....'
-        echo 'Create Apigee Targets'
+        parallel(
+          "Import in Apigee": {
+            echo 'Importing ....'
+            echo 'Create Apigee Targets'
+            
+          },
+          "Create Apigee model": {
+            echo 'Set developerpotral'
+            
+          }
+        )
       }
     }
     stage('Develop Deployment') {
