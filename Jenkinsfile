@@ -19,6 +19,7 @@ pipeline {
           "Apigee": {
             echo 'Importing ....'
             echo 'Create Apigee Targets'
+            sh 'cURL asasasa'
             
           },
           "Create Apigee model": {
