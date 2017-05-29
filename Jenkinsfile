@@ -12,10 +12,6 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
       steps {
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus upstream:updates:list qubytest'''
-        sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
-terminus env:deploy qubytest.dev --sync-content --note="From Jenkins" --cc
-
-'''
         input(message: 'Validate site', id: '1', ok: 'Ok', submitter: 'Designer', submitterParameter: 'w')
       }
     }
