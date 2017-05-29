@@ -5,12 +5,7 @@ pipeline {
       steps {
         echo 'Building..'
         echo 'UnitTesting ...'
-      }
-    }
-    stage('Package') {
-      steps {
-        echo 'Packaging..'
-        echo 'Set in artifactory'
+        sh 'sudo apt install php7.0-cli'
       }
     }
     stage('Import in Apigee') {
