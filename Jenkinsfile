@@ -5,7 +5,9 @@ pipeline {
       steps {
         echo 'Building..'
         echo 'UnitTesting ...'
-        sh 'terminus -V'
+        sh '''
+cd /home/bitnami/terminus/vendor/bin
+terminus -V'''
       }
     }
     stage('Import in Apigee') {
