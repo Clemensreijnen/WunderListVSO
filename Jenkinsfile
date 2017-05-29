@@ -5,7 +5,8 @@ pipeline {
       steps {
         echo 'Building..'
         echo 'UnitTesting ...'
-        sh 'composer global require pantheon-systems/terminus'
+        sh '''composer install
+'''
       }
     }
     stage('Import in Apigee') {
