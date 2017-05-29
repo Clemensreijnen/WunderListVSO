@@ -12,6 +12,7 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
       steps {
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus upstream:updates:list qubytest'''
+        sh 'terminus env:deploy qubytest.test --sync-content --note="From Jenkins" --cc'
       }
     }
     stage('Test Deployment') {
