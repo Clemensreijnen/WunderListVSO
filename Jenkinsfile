@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'Building..'
         echo 'UnitTesting ...'
-        sh 'sudo apt install php7.0-cli'
+        sh 'composer global require pantheon-systems/terminus'
       }
     }
     stage('Import in Apigee') {
