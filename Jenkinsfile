@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'Building..'
         echo 'UnitTesting ...'
-        sh '''composer install
+        sh ''' terminus -V
 '''
       }
     }
