@@ -10,7 +10,8 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
     }
     stage('Develop Deployment') {
       steps {
-        sh 'terminus upstream:updates:list qubytest'
+        sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
+terminus upstream:updates:list qubytest'''
       }
     }
     stage('Test Deployment') {
