@@ -5,8 +5,7 @@ pipeline {
       steps {
         echo 'Building..'
         echo 'UnitTesting ...'
-        sh '''
-cd /home/bitnami/terminus/vendor/bin
+        sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus -V'''
       }
     }
