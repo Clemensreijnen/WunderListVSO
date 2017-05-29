@@ -12,31 +12,25 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
       steps {
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus upstream:updates:list qubytest'''
-        sh 'terminus env:deploy qubytest.test --sync-content --note="From Jenkins" --cc'
+        sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
+terminus env:deploy qubytest.dev--sync-content --note="From Jenkins" --cc
+
+'''
+        input(message: 'Validate site', id: '1', ok: 'Ok', submitter: 'Designer', submitterParameter: 'w')
       }
     }
     stage('Test Deployment') {
       steps {
-        echo 'Deploy test'
-        echo 'Deploy test Apigee'
-        echo 'Api test'
-        echo 'Configure monitoring'
+        sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
+terminus env:deploy qubytest.test--note="To Live by Jenkins" --cc'''
+        input 'Validate test site'
       }
     }
-    stage('Staging deployment') {
+    stage('Live deployment') {
       steps {
-        echo 'Deploying staging'
-        echo 'Deploying staging Apigee'
-        echo 'Api testing ...'
-        echo 'Configure monitoring'
-      }
-    }
-    stage('Production deployment') {
-      steps {
-        echo 'deploying '
-        echo 'Deploy Prod Apigee'
-        echo 'Api testing '
-        echo 'Configure monitoring'
+        sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
+terminus env:deploy qubytest.live --note="To Live by Jenkins" --cc'''
+        input 'All set for live'
       }
     }
   }
