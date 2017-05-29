@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('Pre Build') {
       steps {
-        echo 'Init build salve..'
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus -V
 terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH5'''
@@ -11,10 +10,7 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
     }
     stage('Develop Deployment') {
       steps {
-        echo 'Deploy to container'
-        echo 'API Test deployment'
-        echo 'Deploy to Apigee develop'
-        echo 'Api Testing on Apigee endpoints'
+        sh 'terminus upstream:updates:list qubytest'
       }
     }
     stage('Test Deployment') {
