@@ -19,7 +19,7 @@ pipeline {
           "Apigee": {
             echo 'Importing ....'
             echo 'Create Apigee Targets'
-            sh 'cURL asasasa'
+            sh 'curl -O https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar && php installer.phar install'
             
           },
           "Create Apigee model": {
