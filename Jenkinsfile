@@ -11,22 +11,20 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
     stage('Develop Deployment') {
       steps {
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
-terminus upstream:updates:list qubytest'''
-        input(message: 'Validate site', id: '1', ok: 'Ok', submitter: 'Designer', submitterParameter: 'w')
+terminus upstream:updates:list qubytest
+'''
       }
     }
     stage('Test Deployment') {
       steps {
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus env:deploy qubytest.test --note="To Test by Jenkins" --cc'''
-        input 'Validate test site'
       }
     }
     stage('Live deployment') {
       steps {
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus env:deploy qubytest.live --note="To Live by Jenkins" --cc'''
-        input 'All set for live'
       }
     }
   }
