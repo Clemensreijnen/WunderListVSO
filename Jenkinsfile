@@ -6,15 +6,12 @@ pipeline {
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus -V
 terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH5'''
-        input(message: 'Input testje', id: '100', ok: 'Akkoord', submitter: 'user', submitterParameter: '1001')
         mail(subject: 'Testje', body: 'Dit is een test, wil je accepteren?', from: 'leonie.huizing@capgemini.com', to: 'xxleoniex@hotmail.com')
-        sh '''curl -H "Content-Type:text/xml" -X POST -d \
-'<TargetServer name="D2C">
+        sh '''curl -H "Content-Type:text/xml" -X POST -d '<TargetServer name="D2C">
    <Host>sogeti-api-admin-assess-d.azurewebsites.net</Host>
    <Port>80</Port>
    <IsEnabled>true</IsEnabled>
- </TargetServer>' \
--u ${apigee_usermail}:${apigee_password} https://api.enterprise.apigee.com/v1/o/${apigee_instance}/environments/dev/targetservers
+ </TargetServer>' -u ${apigee_usermail}:${apigee_password} https://api.enterprise.apigee.com/v1/o/${apigee_instance}/environments/dev/targetservers
 '''
       }
     }
