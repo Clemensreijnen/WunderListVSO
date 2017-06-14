@@ -12,7 +12,7 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
    <IsEnabled>true</IsEnabled>
  </TargetServer>' -u ${apigee_usermail}:${apigee_password} https://api.enterprise.apigee.com/v1/o/${apigee_instance}/environments/dev/targetservers
 '''
-        sh 'npm install cypress-cli'
+        sh 'npm install -g cypress-cli'
       }
     }
     stage('Develop Deployment') {
@@ -20,6 +20,7 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus upstream:updates:list qubytest
 '''
+        sh 'npm install -g cypress-cli'
       }
     }
     stage('Test Deployment') {
