@@ -24,7 +24,7 @@ npm install -g cypress-cli'''
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus upstream:updates:list qubytest
 '''
-        sh 'npm install -g cypress-cli'
+        sh 'cypress run'
       }
     }
     stage('Test Deployment') {
