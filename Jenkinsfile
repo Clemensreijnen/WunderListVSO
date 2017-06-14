@@ -15,7 +15,7 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
         sh ''' mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 export PATH=~/.npm-global/bin:$PATH
- source ~/.profile
+ 
 npm install -g cypress-cli'''
       }
     }
