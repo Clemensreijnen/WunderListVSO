@@ -21,7 +21,6 @@ pwd'''
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus upstream:updates:list qubytest
 '''
-        sh '/home/tomcat/.npm-global/lib/node_modules/cypress-cli/bin/cypress run /users/john/projects/TodoMVC'
       }
     }
     stage('Test Deployment') {
