@@ -20,7 +20,8 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus upstream:updates:list qubytest
 '''
-        sh 'cypress run /users/john/projects/TodoMVC'
+        sh '''cd /home/tomcat/.npm-global/lib/node_modules/cypress-cli/bin/
+cypress run /users/john/projects/TodoMVC'''
       }
     }
     stage('Test Deployment') {
