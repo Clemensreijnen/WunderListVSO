@@ -12,7 +12,7 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
    <IsEnabled>true</IsEnabled>
  </TargetServer>' -u ${apigee_usermail}:${apigee_password} https://api.enterprise.apigee.com/v1/o/${apigee_instance}/environments/dev/targetservers
 '''
-        sh ''' mkdir ~/.npm-global
+        sh '''
 npm config set prefix '~/.npm-global'
 export PATH=~/.npm-global/bin:$PATH
  
