@@ -12,9 +12,7 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
    <IsEnabled>true</IsEnabled>
  </TargetServer>' -u ${apigee_usermail}:${apigee_password} https://api.enterprise.apigee.com/v1/o/${apigee_instance}/environments/dev/targetservers
 '''
-        sh '''curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs
-npm install -g cypress-cli'''
+        sh 'npm install -g cypress-cli'
       }
     }
     stage('Develop Deployment') {
