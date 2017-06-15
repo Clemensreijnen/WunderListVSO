@@ -6,7 +6,6 @@ pipeline {
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus -V
 terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH5'''
-        input(message: 'Proceed?', id: 'validate')
       }
     }
     stage('Develop Deployment') {
@@ -14,6 +13,7 @@ terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus upstream:updates:list qubytest
 '''
+        input(message: 'Proceed deployment to Test?', id: 'ProceedtoTest')
       }
     }
     stage('Test Deployment') {
