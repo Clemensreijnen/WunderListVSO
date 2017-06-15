@@ -6,14 +6,7 @@ pipeline {
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus -V
 terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH5'''
-        sh '''curl -H "Content-Type:text/xml" -X POST -d '<TargetServer name="D2C">
-   <Host>sogeti-api-admin-assess-d.azurewebsites.net</Host>
-   <Port>80</Port>
-   <IsEnabled>true</IsEnabled>
- </TargetServer>' -u ${apigee_usermail}:${apigee_password} https://api.enterprise.apigee.com/v1/o/${apigee_instance}/environments/dev/targetservers
-'''
-        sh '''npm install -g cypress-cli
-pwd'''
+        input(message: 'Proceed?', id: 'validate')
       }
     }
     stage('Develop Deployment') {
