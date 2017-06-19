@@ -6,6 +6,10 @@ pipeline {
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus -V
 terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH5'''
+        sh '''sh 'npm install -g cypress-cli'
+sh 'pwd'
+sh 'cypress install'
+'''
       }
     }
     stage('Develop Deployment') {
