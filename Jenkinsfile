@@ -7,7 +7,7 @@ pipeline {
 terminus -V
 terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH5'''
         sh '''dir '/home/bitnami' 
-mkdir 'cypress'
+mkdir 'cypress_CLI'
 pwd
 
 
