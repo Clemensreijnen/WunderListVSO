@@ -6,8 +6,8 @@ pipeline {
         sh '''alias terminus=/home/bitnami/terminus/vendor/bin/terminus
 terminus -V
 terminus auth:login --machine-token=PDw-MCyX3vJI2UG1_qwrIPJ1cbvlXTseUvWm2RuonIQH5'''
-        sh '''
-dir '/home/bitnami/ npm install -g cypress-cli'
+        sh '''sh' alias cypress=/home/bitnami/cypress'
+sh 'cypress npm install -g cypress-cli'
 dir '/home/bitnami/'
 
 
